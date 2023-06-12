@@ -128,7 +128,8 @@ class MainActivity : ComponentActivity() {
                         )
                     }
 
-                    SimpleRecyclerView()
+                    //SimpleRecyclerView()
+                    SuperHeroView()
                 }
             }
         }
