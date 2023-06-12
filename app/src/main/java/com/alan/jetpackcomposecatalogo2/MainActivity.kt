@@ -1,7 +1,6 @@
 package com.alan.jetpackcomposecatalogo2
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -128,6 +127,8 @@ class MainActivity : ComponentActivity() {
                             onDismiss = { show = false }
                         )
                     }
+
+                    SimpleRecyclerView()
                 }
             }
         }
