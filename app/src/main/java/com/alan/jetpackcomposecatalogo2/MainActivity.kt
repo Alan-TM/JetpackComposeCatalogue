@@ -1,8 +1,10 @@
 package com.alan.jetpackcomposecatalogo2
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -73,6 +75,7 @@ import com.alan.jetpackcomposecatalogo2.ui.theme.JetpackComposeCatalogo2Theme
 import com.alan.jetpackcomposecatalogo2.ui.theme.Shapes
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -129,7 +132,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     //SimpleRecyclerView()
-                    SuperHeroView()
+                    SuperHeroStickyView()
                 }
             }
         }
