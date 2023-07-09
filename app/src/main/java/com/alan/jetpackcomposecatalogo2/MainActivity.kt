@@ -10,7 +10,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -68,9 +67,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.alan.jetpackcomposecatalogo2.checkbox_avanzado.CheckInfo
-import com.alan.jetpackcomposecatalogo2.checkbox_avanzado.MyCheckBoxList
-import com.alan.jetpackcomposecatalogo2.radiobutton_avanzado.MyRadioButtonList
 import com.alan.jetpackcomposecatalogo2.ui.theme.JetpackComposeCatalogo2Theme
 import com.alan.jetpackcomposecatalogo2.ui.theme.Shapes
 
@@ -95,7 +91,7 @@ class MainActivity : ComponentActivity() {
                     MyButton()*/
 
                     // Checkbox with state hoisting
-                    var status by rememberSaveable {
+                    /*var status by rememberSaveable {
                         mutableStateOf(false)
                     }
                     val checkInfo = CheckInfo(
@@ -104,21 +100,21 @@ class MainActivity : ComponentActivity() {
                         onCheckedChange = { newStatus ->
                             status = newStatus
                         }
-                    )
+                    )*/
 
-                    MyCheckBoxList()
+                    // MyCheckBoxList()
 
                     // Radio button state hoisting
-                    var selected by rememberSaveable {
+                    /*var selected by rememberSaveable {
                         mutableStateOf("Aris")
                     }
                     MyRadioButtonList(selected) {
                         selected = it
-                    }
+                    }*/
 
-                    MyDropdownMenu()
+                    // MyDropdownMenu()
 
-                    var show by remember {
+                   /* var show by remember {
                         mutableStateOf(false)
                     }
                     Box(contentAlignment = Alignment.Center) {
@@ -129,10 +125,12 @@ class MainActivity : ComponentActivity() {
                             show = show,
                             onDismiss = { show = false }
                         )
-                    }
+                    }*/
 
-                    //SimpleRecyclerView()
-                    SuperHeroStickyView()
+                    // SimpleRecyclerView()
+                    // SuperHeroStickyView()
+
+                    ScaffoldExample()
                 }
             }
         }
