@@ -67,6 +67,12 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.alan.jetpackcomposecatalogo2.model.Routes
 import com.alan.jetpackcomposecatalogo2.ui.theme.JetpackComposeCatalogo2Theme
 import com.alan.jetpackcomposecatalogo2.ui.theme.Shapes
 
@@ -114,23 +120,53 @@ class MainActivity : ComponentActivity() {
 
                     // MyDropdownMenu()
 
-                   /* var show by remember {
-                        mutableStateOf(false)
-                    }
-                    Box(contentAlignment = Alignment.Center) {
-                        Button(onClick = { show = true }) {
-                            Text(text = "Mostrar dialogo")
-                        }
-                        MyConfirmationDialog(
-                            show = show,
-                            onDismiss = { show = false }
-                        )
-                    }*/
+                    /* var show by remember {
+                         mutableStateOf(false)
+                     }
+                     Box(contentAlignment = Alignment.Center) {
+                         Button(onClick = { show = true }) {
+                             Text(text = "Mostrar dialogo")
+                         }
+                         MyConfirmationDialog(
+                             show = show,
+                             onDismiss = { show = false }
+                         )
+                     }*/
 
                     // SimpleRecyclerView()
                     // SuperHeroStickyView()
 
-                    ScaffoldExample()
+                    // ScaffoldExample()
+
+                    // NAVIGATION
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = Routes.Pantalla1.route
+                    ) {
+                        composable(Routes.Pantalla1.route) { Screen1(navController = navController) }
+                        composable(Routes.Pantalla2.route) { Screen2(navController) }
+                        composable(Routes.Pantalla3.route) { Screen3(navController) }
+                        composable(
+                            Routes.Pantalla4.route,
+                            arguments = listOf(navArgument("age") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            Screen4(
+                                navController,
+                                backStackEntry.arguments?.getInt("age") ?: 0
+                            )
+                        }
+
+                        composable(
+                            Routes.Pantalla5.route,
+                            arguments = listOf(navArgument("name") { defaultValue = "Pepe" })
+                        ) { backStackEntry ->
+                            Screen5(
+                                navController,
+                                backStackEntry.arguments?.getString("name")
+                            )
+                        }
+                    }
                 }
             }
         }
